@@ -4,16 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lists</title>
+    <style>
+        .playlist h5{margin: 2px 0;}
+        .playlist a{margin-top:3px;
+        display:block;}
+    </style>
 </head>
 <body>
     <center><h1>Muzify</h1></center>
     <h2>Your playlists are:</h2>
     {% for result in results %}
     <div  class="playlist">
-        <img src="{{results['thumbnail']}}" alt="{{results['title']}}">
-        <h3>{{results['title']}}</h3>
-        <h4>{{results['channel']}}</h4>
-        <a href ="{{results['url']}}">Open playlist</a>
+        <img src="{{result['thumbnail']}}" alt="{{result['title']}}">
+        <h5>Title:{{result['title']}}</h5>
+        <h5>Channel name: {{result['channel']}}</h5>
+        <a href ="{{result['url']}}">Open playlist</a>
+        <br>
     </div>
     {% endfor %}
 </body>

@@ -25,6 +25,8 @@ def playlists():
     params = {"part":"snippet", "q": query, "type":"playlist", "maxResults":5, "key":api_key}
     response = requests.get(url, params=params, timeout=5)
     data = response.json()
+    if "error" in data:
+        return "Error: Please try again later."
     results = []
     for item in data["items"]:
         results.append({"title": item["snippet"]["title"],"thumbnail": item["snippet"]["thumbnails"]["default"]["url"],"channel": item["snippet"]["channelTitle"],"url":f"https://www.youtube.com/playlist?list={item['id']['playlistId']}"})
