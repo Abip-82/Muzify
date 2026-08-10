@@ -1,4 +1,9 @@
 from flask import Flask, render_template, request
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+api_key = os.getenv("API_KEY")
 
 app = Flask(__name__)
 
@@ -18,4 +23,4 @@ def playlists():
     return render_template("playlists.html")
 
 if __name__== '__main__':
-    app.run(debug)
+    app.run()
