@@ -4,11 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muzify home page</title>
+    <style>
+        body {
+            background-color: #181818 ;
+            color:white ;
+            font-family: Arial, sans-serif;
+            text-align:center;
+        }
+        .container {
+            margin-top:150 px;
+        }
+        h1 {
+            font-size: 60px;
+            margin-bottom:10px;
+        }
+        h4 {
+            color: #dddddd;
+            margin-bottom: 8px;
+        }
+        p {
+            color: #999999;
+            margin-bottom: 35px;
+        }
+        button {
+            background-color: #b667ff;
+            color:white;
+            border:none;
+            padding:12px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #9848e8;
+        }
+    </style>
 </head>
 <body>
     <center><h1>Muzify</h1></center>
     <h4>Welcome to Muzify!</h4>
-    <h4>Mood for some music? Generate your perfect playlist with one click.</h4>
+    <p>Mood for some music?</p>
+    <p>We will find the right music for You!</p>
     <form action="/form" method="POST">
         <button type="submit">Try Muzify!</button>
     </form>
