@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate playlist</title>
+</head>
+<body>
+    <center><h1>Muzify</h1></center><br><br>
+    <h2>Please fill out the given information</h2>
+    <h3>A playlist will be generated based on your preferences.</h3>
+    <br><br>
+<form action="/playlists" method="POST">
+    <p>What is your mood today?</p><br>
+    <input type="text" name="mood" placeholder="Happy? Sad? Energetic? ...." required><br>
+    <p>What is the weather like?</p><br>
+    <input type="text" name="weather" placeholder="Sunny? Rainy? Cloudy? ...." required><br>
+    <p>Any activities?</p><br>
+    <input type="text" name="activities" placeholder="work-out? Studying? Partying? ...." required><br>
+    <button type="submit">Generate</button>
+</form>
+</body>
+</html>
