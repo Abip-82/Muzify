@@ -1,11 +1,15 @@
 from flask import Flask, render_template, request
 import os, requests
 from dotenv import load_dotenv
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 
 load_dotenv()
 api_key = os.getenv("API_KEY")
 
 app = Flask(__name__)
+
+limiter = Limiter(get_remote_address, app=app)
 
 @app.route('/')
 def home():
@@ -16,6 +20,7 @@ def form():
     return render_template('form.html')
 
 @app.route('/playlists', methods=["POST"])
+@limiter.limit("12 per hour")
 def playlists():
     mood = request.form["mood"].strip().lower()
     weather = request.form["weather"].strip().lower()
@@ -29,7 +34,7 @@ def playlists():
         return "Error: Please try again later."
     results = []
     for item in data["items"]:
-        results.append({"title": item["snippet"]["title"],"thumbnail": item["snippet"]["thumbnails"]["default"]["url"],"channel": item["snippet"]["channelTitle"],"url":f"https://www.youtube.com/playlist?list={item['id']['playlistId']}"})
+        results.append({"title": item["snippet"]["title"],"thumbnail": item["snippet"]["thumbnails"]["high"]["url"],"channel": item["snippet"]["channelTitle"],"url":f"https://www.youtube.com/playlist?list={item['id']['playlistId']}"})
     return render_template('playlists.html', results=results)
 
 if __name__== '__main__':
