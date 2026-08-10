@@ -15,7 +15,7 @@ def playlists():
     mood = request.form["mood"].strip().lower()
     weather = request.form["weather"].strip().lower()
     activities = request.form["activities"].strip().lower()
-    return render_template('playlists.html')
+    return render_template("playlists.html")
 
 if __name__== '__main__':
-    app.run()
+    app.run(debug)
