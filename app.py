@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import os
+import os, requests
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -20,7 +20,15 @@ def playlists():
     mood = request.form["mood"].strip().lower()
     weather = request.form["weather"].strip().lower()
     activities = request.form["activities"].strip().lower()
-    return render_template("playlists.html")
+    query = f"{mood} {weather} {activities} songs"
+    url = f"https://www.googleapis.com/youtube/v3/search"
+    params = {"part":"snippet", "q": query, "type":"playlist", "maxResults":5, "key":api_key}
+    response = requests.get(url, params=params, timeout=5)
+    data = response.json()
+    results = []
+    for item in data["items"]:
+        results.append({"title": item["snippet"]["title"],"thumbnail": item["snippet"]["thumbnail"]["default"]["url"],"channel": item["snippet"]["channelTitle"],"url":f"https://www.youtube.com/playlist?list={item['id']['playlistId']}"})
+    return render_template('playlists.html', results=results)
 
 if __name__== '__main__':
     app.run()
