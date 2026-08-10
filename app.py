@@ -27,7 +27,7 @@ def playlists():
     data = response.json()
     results = []
     for item in data["items"]:
-        results.append({"title": item["snippet"]["title"],"thumbnail": item["snippet"]["thumbnail"]["default"]["url"],"channel": item["snippet"]["channelTitle"],"url":f"https://www.youtube.com/playlist?list={item['id']['playlistId']}"})
+        results.append({"title": item["snippet"]["title"],"thumbnail": item["snippet"]["thumbnails"]["default"]["url"],"channel": item["snippet"]["channelTitle"],"url":f"https://www.youtube.com/playlist?list={item['id']['playlistId']}"})
     return render_template('playlists.html', results=results)
 
 if __name__== '__main__':

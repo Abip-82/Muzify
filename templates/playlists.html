@@ -8,8 +8,13 @@
 <body>
     <center><h1>Muzify</h1></center>
     <h2>Your playlists are:</h2>
+    {% for result in results %}
     <div  class="playlist">
-        <img src="{{results.thumbnail}}" alt="{{results.title}}">
+        <img src="{{results['thumbnail']}}" alt="{{results['title']}}">
+        <h3>{{results['title']}}</h3>
+        <h4>{{results['channel']}}</h4>
+        <a href ="{{results['url']}}">Open playlist</a>
     </div>
+    {% endfor %}
 </body>
 </html>
