@@ -11,3 +11,9 @@ Muzify is built on Flask (a popular python framework) along with Html and CSS.
 ## Why I Built Muzify?
 I built Muzify to speed up my process in finding the right music playlist for all situations. I always had faced trouble trying to find the right music for different moods. When I am working on various hobby projects, trying to study, casually walking in park or even while working out. I am sure there are other people facin' this exact situation. So for that reason, I decided to built Muzify. It finds the right music playlist for different situations.
 
+## Screenshots of Muzify:
+![Screenshot](./asset/screenshot.png)
+![Screenshot](./asset/screenshot2.png)
+
+## Link to Muzify:
+https://muzify-eight.vercel.app/
