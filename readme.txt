@@ -13,7 +13,7 @@ I built Muzify to speed up my process in finding the right music playlist for al
 
 ## Screenshots of Muzify:
 ![Screenshot](./Assets/screenshot.png)
-![Screenshot](./Assets/screenshot2.png)
+![Screenshot](./Assets/Screenshot2.png)
 
 ## Link to Muzify:
 https://muzify-eight.vercel.app/
